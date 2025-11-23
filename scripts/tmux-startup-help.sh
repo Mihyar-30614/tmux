@@ -48,6 +48,7 @@ COPY MODE
 
 SHELL HELPERS (use in your shell)
   ts <name>    create-or-attach session
+  tls          List all sessions name
   ta           fuzzy switch session
   tks          fuzzy kill session
   pj           pick project dir -> session
