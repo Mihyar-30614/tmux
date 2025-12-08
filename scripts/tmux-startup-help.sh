@@ -35,16 +35,29 @@ SESSIONS
 WINDOWS
   ${prefix_key} W     fuzzy switch window (all sessions)
   ${prefix_key} c     new window in current dir
-  ${prefix_key} -     split below (keep cwd)
-  ${prefix_key} _     split right  (keep cwd)
+  ${prefix_key} n     next window
+  ${prefix_key} p     previous window
+  ${prefix_key} C-h   previous window (repeatable)
+  ${prefix_key} C-l   next window (repeatable)
+  ${prefix_key} X     kill current window
 
 PANES
   ${prefix_key} P     fuzzy switch pane (all sessions)
+  ${prefix_key} h/j/k/l  vim-style pane navigation
+  ${prefix_key} H/J/K/L  resize pane (repeatable)
+  ${prefix_key} z     toggle pane zoom (fullscreen)
+  ${prefix_key} x     kill current pane
+  ${prefix_key} -     split below (keep cwd)
+  ${prefix_key} _     split right (keep cwd)
+  ${prefix_key} |     split right (alternative)
   Mouse               click to select / resize
 
 COPY MODE
   ${prefix_key} [     enter copy mode (vi keys enabled)
-  v / y               select / copy
+  v                   begin selection
+  y                   copy and exit
+  C-v                 rectangle/block selection
+  Escape              cancel
 
 SHELL HELPERS (use in your shell)
   ts <name>    create-or-attach session
