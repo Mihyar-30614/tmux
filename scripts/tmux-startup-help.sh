@@ -6,10 +6,11 @@ MODE="${1:-attach}"
 
 STAMP_DIR="${TMPDIR:-/tmp}/tmux-help"
 mkdir -p "$STAMP_DIR" 2>/dev/null || true
-CLIENT_ID="${TMUX_CLIENT:-${TMUX_PANE:-$$}}"
-STAMP_FILE="$STAMP_DIR/$CLIENT_ID"
+# Use session name instead of client ID to show popup only once per session
+SESSION_NAME="$(tmux display-message -p '#S' 2>/dev/null || echo 'default')"
+STAMP_FILE="$STAMP_DIR/$SESSION_NAME"
 
-# Only show automatically once per client
+# Only show automatically once per session (not on every attach)
 if [ "$MODE" = "attach" ] && [ -f "$STAMP_FILE" ]; then
   exit 0
 fi
